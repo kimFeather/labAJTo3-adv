@@ -1,0 +1,6 @@
+language: node_jd
+
+install: true
+script: true
+after_succcess:
+- scp -i "se234.pem" -r html/* uduntu@172.31.41.9:/var/www/html/
