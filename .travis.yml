@@ -1,6 +1,10 @@
 language: node_jd
-
 install: true
 script: true
 after_succcess:
 - scp -i "se234.pem" -r html/* uduntu@172.31.41.9:/var/www/html/
+env:
+  global:
+    secure: bZar+fILdx+ZxXM+DCZL4+WlsVsfl7XwkNCDzDf+m9PCYn8HiO66RYIBytv91wC4/R5Xppk+EqQfvsLcZBQw7XNemJo8O6uCl1T0XL8I49UAmPg5GQ4yHj00kSQmaMYYD0ylT4cBJM/fK46W7mKfGZAsZJfukTu4ytM/TfNtjOECiOlIhUgxzOqq6tRz+EQy3OBFWYTtH7s0+Ap3RNuB9uSGdmEtdhyw2adCNbk7/8IWKZsenLVRIQhOFYDAI5cDaccDLphNLmKhmULm4WVqFqxJp3o9Pq9XtNgQiiaCpHBI99oasV6AbkTFGOs7OgdIH+APMmJ2X9c1McgyNLvbRbcH+5PctwWaHTkQFbI6wU9IJbAeBKU0rhEgMlmEIjITNZCdnzLRGhb6rvzaFHqnLtfPPzbPQtpWiZiVAZ5/lORrg94JWFz0RadxYyOICEDsHpkieMOPSqpmR9xHkurKbepY5wWpp/+56Mw9RDliSQERubFiA0cnt8M5jkXp1lIMw35t7WnqNz6+OXhKY1OfBMbUlixGr+qUk4OUnAjU4C5+MvgVRyXREd1t5uy3VC0V3YmxcSeSIceFQcBbQCk//wZetq/xrtZXFnkR0Tb4Xrxki1esLcjXjzXR4L1ea0e307sjvWJ69jWKhcsYT5C1rQD3P9L7P1V2InjiMtJtAPc=
+before_install:
+  - openssl aes-256-cbc -k "$super_secret_password" -in se234.pem.enc -out se234.pem -d
